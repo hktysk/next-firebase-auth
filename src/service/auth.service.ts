@@ -1,7 +1,9 @@
 import firebase from 'firebase';
 import { firebaseConfig } from '../../firebase.config';
 
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 async function signIn(provider: firebase.auth.AuthProvider) {
   await firebase
